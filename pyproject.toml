@@ -19,3 +19,8 @@ dependencies = [
     "torchvision==0.19.1",
     "tqdm>=4.67.1",
 ]
+
+macosx_15_0_x86_64 = [
+    "torch==2.2.2",
+    "torchvision==0.17.2"
+]
