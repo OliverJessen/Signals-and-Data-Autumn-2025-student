@@ -12,7 +12,7 @@ __pycache__/
 week_10/glove.6B/
 week_10/wiki-news-300d-1M.vec
 /week_5/eeg_data/
-*.csv
+# *.csv
 *.gz
 /week_3/data
 week_9/glove.6B.50d.txt
