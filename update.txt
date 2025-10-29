@@ -1,0 +1,99 @@
+===========================================
+ Guide: Updating Your Fork Without Losing Work
+===========================================
+
+Purpose:
+--------
+This guide helps you pull new exercises from the original class repository (upstream)
+into your fork, without overwriting any of your existing answers.
+
+You will:
+  ✅ Fetch updates from the class repo
+  ✅ Merge new exercises into your fork
+  ✅ Keep all your own work in case of conflicts
+
+-------------------------------------------
+1. Check your remotes
+-------------------------------------------
+
+Run:
+    git remote -v
+
+You should see something like:
+    origin    https://github.com/<your-username>/<your-fork>.git (fetch)
+    upstream  https://github.com/<teacher>/<class-repo>.git (fetch)
+
+If you don’t see “upstream”, add it:
+    git remote add upstream https://github.com/<teacher>/<class-repo>.git
+
+-------------------------------------------
+2. Fetch the latest upstream changes
+-------------------------------------------
+
+Run:
+    git fetch upstream
+
+This downloads all new updates from the class repository,
+but does NOT change any of your files yet.
+
+-------------------------------------------
+3. Merge while keeping your changes
+-------------------------------------------
+
+Run:
+    git merge upstream/master -X ours
+
+Explanation:
+  - "upstream/master" is the main branch from the class repo.
+  - "-X ours" tells Git to automatically keep YOUR version
+    of any file where there’s a conflict.
+
+This ensures:
+  → New files (like new exercises) are added
+  → Your answers stay safe and untouched
+
+-------------------------------------------
+4. Review the changes
+-------------------------------------------
+
+Run:
+    git status
+
+You’ll see a list of new or updated files.
+Optionally, you can inspect differences:
+    git diff HEAD^
+
+If everything looks good:
+    git commit -m "Merged upstream updates (kept my changes)"
+
+If Git already created a merge commit, you can skip this step.
+
+-------------------------------------------
+5. Push your updated fork
+-------------------------------------------
+
+Run:
+    git push origin master
+
+Now your fork on GitHub has:
+  ✅ Your answers
+  ✅ The latest exercises from the class repository
+
+-------------------------------------------
+Optional: Check what was added
+-------------------------------------------
+
+To see what changed since the last merge:
+    git log --oneline --graph --decorate --all | less
+
+Or to view only the new exercise files:
+    git diff --name-status HEAD@{1}
+
+-------------------------------------------
+Done! 🎉
+-------------------------------------------
+
+Next time you want to update:
+    git fetch upstream
+    git merge upstream/master -X ours
+    git push origin master
