@@ -2,6 +2,9 @@
 # Reviews data present in week 7 ~250Mb
 week_7/data/Reviews.csv
 
+# Review data present in week 9 ~250Mb
+week_9/data/Reviews.csv
+
 # Any pycache and ipynb checkpoints files
 **/__pycache__/*
 **/.ipynb_checkpoints/
