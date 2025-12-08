@@ -1,3 +1,6 @@
+# Ignore data present in assignment 3 ~500Mb
+/assignment_3/data/news_data.npz
+/assignment_3/data/glove.6B.50d.txt
 
 # Reviews data present in week 7 ~250Mb
 week_7/data/Reviews.csv
